@@ -1,0 +1,28 @@
+/* styles.css */
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Primary button variation */
+  .button--primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Secondary button variation */
+  .button--secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  /* Success button variation */
+  .button--success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  /* Add more variations as needed */
+  
