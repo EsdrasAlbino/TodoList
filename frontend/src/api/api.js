@@ -1,15 +1,14 @@
 import axios from "axios";
 
-const baseURL = process.env.BASE_API;
+const baseURL = process.env.REACT_APP_API_URL;
 
 console.log("baseURL", baseURL);
 
 export const api = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: baseURL,
 });
 
 api.interceptors.request.use((config) => {
-  const apiKey = process.env.API_KEY;
 
   config.params = {
     ...config.params,

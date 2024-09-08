@@ -3,7 +3,7 @@ import { Title } from "../../atomics/typography/title/title";
 import { Input } from "../../atomics/input/Input";
 import { Button } from "../../atomics/button/Button";
 import "./formsTemplate.css";
-import { useForm } from "../../../../node_modules/react-hook-form/dist";
+import { useForm } from "react-hook-form";
 
 export const FormsTemplate = ({
   onSubmit,
