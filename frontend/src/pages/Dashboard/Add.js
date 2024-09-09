@@ -28,6 +28,7 @@ const Add = ({ setIsAdding, update, setTodos }) => {
       await postTodo(newEmployee);
 
       update();
+      window.location.reload();
       Swal.fire({
         icon: "success",
         title: "Added!",
@@ -108,8 +109,8 @@ const Add = ({ setIsAdding, update, setTodos }) => {
       buttonText: "Cancelar",
       onClick: () => {
         setIsAdding(false);
-        update();
       },
+      desabled: loading,
     },
   ];
 

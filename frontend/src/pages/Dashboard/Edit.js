@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { FormsTemplate } from "../../components/template/formsTemplate/formsTemplate";
 import { updateTodo } from "../../api/services/tasks/put";
 
 const Edit = ({ selectedEmployee, setIsEditing, update, setTodos }) => {
+  const [loading, setLoading] = useState(false);
   const defaultValues = {
     id: selectedEmployee.id,
     isComplete: selectedEmployee.isComplete,
@@ -14,6 +15,7 @@ const Edit = ({ selectedEmployee, setIsEditing, update, setTodos }) => {
   };
 
   const handleUpdate = async (data) => {
+    setLoading(true);
     if (
       !data.todo ||
       !data.responsable ||
@@ -48,9 +50,9 @@ const Edit = ({ selectedEmployee, setIsEditing, update, setTodos }) => {
         text: `${employee.firstName} ${employee.lastName}'s data has been updated.`,
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => {
-        update();
       });
+      update();
+      window.location.reload();
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -58,6 +60,8 @@ const Edit = ({ selectedEmployee, setIsEditing, update, setTodos }) => {
         text: "An error occurred while updating the data.",
         showConfirmButton: true,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,6 +122,7 @@ const Edit = ({ selectedEmployee, setIsEditing, update, setTodos }) => {
       variant: "muted",
       type: "button",
       onClick: () => setIsEditing(false),
+      desabled: loading,
     },
   ];
 

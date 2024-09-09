@@ -20,8 +20,6 @@ export const FormsTemplate = ({
     defaultValues,
   });
 
-  console.log("first", errors);
-
   return (
     <div className="small-container">
       <form onSubmit={handleSubmit(onSubmit)}>
